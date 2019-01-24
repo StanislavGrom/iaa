@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 
 export interface Data {
-  message: number;
+  message?: number;
 }
 
 @Injectable({
@@ -11,7 +11,7 @@ export interface Data {
 })
 export class FooBarService {
 
-  private dataSource = new BehaviorSubject<Data>({message: 0});
+  private dataSource = new BehaviorSubject<Data>({message: null});
   public data = this.dataSource.asObservable();
 
   constructor(private http: HttpClient) { }
